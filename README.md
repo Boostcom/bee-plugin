@@ -1,37 +1,37 @@
 # BEE plugin wrapper [![Build Status](https://travis-ci.org/samuv/bee-plugin.svg?branch=master)](https://travis-ci.org/samuv/bee-plugin.svg?branch=master)
-A really simple module for use the BEE editor [www.beefree.io](http://beefree.io/plugin/)
+A simple module for use the [BEE editor](http://beefree.io)
 
 ## What the hell is BEE?
-Long story short is a drag-&-drop editor for responsive design emails.
-It makes easy and quick to create a great-looking email message that can be used to send a company newsletter, announce a new product, promote a sale, etc.
+Long story short: it's a drag-&-drop editor to author responsive design emails.
+It makes it easy and quick to create a great-looking email message that can be used to send a company newsletter, announce a new product, promote a sale, etc.
 
-You can embed into your application :)
-BEE have a free version so you can embed the editor anywhere, regardless of pricing model.
+You can embed it into your application :)
+Using with the BEE free version, you can embed the editor anywhere, regardless of the pricing model.
 
 ## How to use it
 
-- go to developer portal [https://developers.beefree.io/signup](https://developers.beefree.io/signup)
+- go to the developer portal [https://developers.beefree.io/signup](https://developers.beefree.io/signup)
 - sign up with the free plan
 - create your application
-- get clientId and clientSecret
+- get the clientId and the clientSecret
 
 ## Demo
 
 It's free to use on ['https://beefree.io'](https://beefree.io): you don't even need to create an account of any kind.
 
 
-## Do you want try out an integration locally?
+## Do you want to try out an integration locally?
 
-1. Install [Node][node] and [npm][npm].
+1. Install Nodejs (also npm, which should come with nodejs already).
 2. clone this repository
 3. `npm install` or `yarn install` in the folder cloned
-4. put your clientId and clientSecret on ./config/integrationKeys.js
+4. put your `clientId` and `clientSecret` in ./config/integrationKeys.js
 5. `npm start`
 6. Open `http://localhost:3030`.
 7. Have fun!
 
 
-## You want this module for your project?
+## How to use this module for your own
 
 ### install
 
@@ -46,9 +46,9 @@ yarn add bee-plugin
 ```
 
 ## Get token
-> You need to be authorize to start with the editor, learn more [here](http://help.beefree.io/hc/en-us/articles/202991192-Initializing-the-plugin)
+> You need to be authorized to start using the editor: befree [has a nice post](http://help.beefree.io/hc/en-us/articles/202991192-Initializing-the-plugin) explaining how to do it
 
-It is not raccomended to do it client side but is possible with the module, just call getToken
+It's not really raccomended to do it client side but it's possible with the module, just call getToken
 
 ```js
 import Bee from 'bee-plugin'
@@ -60,7 +60,7 @@ beeTest.getToken(clientId, clientSecret)
 ```
 
 ## Initialize the plugin
-> initialize the instance of BEE with a token generate server side
+> Initialize the BEE instance with a server side generated token
 
 ```js
 import Bee from 'bee-plugin'
@@ -70,9 +70,9 @@ const beeTest = new Bee(token)
 ```
 
 ## Configuring the editor
-> It required a configuration for using the editor, learn more [here](http://help.beefree.io/hc/en-us/articles/202991192-Initializing-the-plugin)
+> It requires a configuration for using the editor, Befree [has a nice post](http://help.beefree.io/hc/en-us/articles/202991192-Initializing-the-plugin) explaining how to do it
 
-Here an example of configuration, read the official documentation for extended
+Here is an example of the configuration; just read the official documentation for an extended version
 
 ```js
 
@@ -97,7 +97,7 @@ const beeConfig = {
 ```
 
 ## Template JSON
-> It required a initial template for start editing, learn more [here](http://help.beefree.io/hc/en-us/articles/203135882-Sample-code-and-templates)
+> It requires an initial template for start editing, learn more [here](http://help.beefree.io/hc/en-us/articles/203135882-Sample-code-and-templates)
 
 Some json avaible here  [https://github.com/BEE-Plugin/BEE-FREE-templates](https://github.com/BEE-Plugin/BEE-FREE-templates)
 
@@ -105,7 +105,7 @@ Some json avaible here  [https://github.com/BEE-Plugin/BEE-FREE-templates](https
 
 ### getToken(clientId, clientSecret)
 
-Pass your keys on parms and return a promise, example:
+Pass your keys on parms and return a promise; example:
 
 ```js
 const clientId = 'MYclientId'
@@ -121,22 +121,22 @@ beeTest.getToken(clientId, clientSecret)
 ```
 
 ### new Bee(token)
-Initialize a classe with token that are store on constructor
+Initializes a class with the token that are stored on constructor
 
 ### start(beeConfig, template)
-After the initizalization you can call start for create the editor on page, the method need two params:
+After the initizalization you can call start for creating the editor on the page; the method needs two parameters:
 
 - BEE configuration (js object)
 - Template (JSON)
 
 ### load(template)
-After you have started the editor is possible to change the template, just calling load with the new template
+After you have started the editor it's possible to change the template: just call `load` with the new template
 
 ### save()
-After you have started the editor is possible to trigger the save that trigger the callback onSave define on the configuration for getting fresh HTML of the email and the json template updated.
+After you have started the editor it's possible to trigger the `save`, which in turn will trigger the callback onSave defined on the configuration for getting fresh HTML of the email and the json template updated.
 
 ### saveAsTemplate()
-After you have started the editor is possible to trigger the saveAsTemplate that trigger the callback onSaveAsTemplate define on the configuration for getting only the current json of the instance.
+After you have started the editor it's possible to trigger the `saveAsTemplate` which in turn will trigger the callback onSaveAsTemplate defined in the configuration for getting only the current json of the instance.
 
 
 ## Test (WIP)
