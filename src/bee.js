@@ -4,7 +4,7 @@ const BEEJS_URL = 'https://app-rsrc.getbee.io/plugin/BeePlugin.js'
 const API_AUTH_URL = 'https://auth.getbee.io/apiauth'
 
 const load = (bee) => {
-  loadScript(BEEJS_URL, (err) => {
+  loadScript(BEEJS_URL, err => {
     if (err) {
       throw new Error('BeePlugin.js is not reachable')
     }
@@ -12,7 +12,7 @@ const load = (bee) => {
   })
 }
 
-const beeExisist = (instance) => {
+const beeExists = instance => {
   if (!instance) {
     throw new Error('Bee is not started')
   }
@@ -55,7 +55,7 @@ export default class Bee {
       throw new Error('Toker NOT declared, call getToken or pass token on new BEE')
     }
     return bee(() =>
-      BeePlugin.create(token, config, (instance) => {
+      BeePlugin.create(token, config, instance => {
         this.instance = instance
         return instance.start(template)
       })
@@ -64,19 +64,19 @@ export default class Bee {
 
   load(template) {
     const { instance } = this
-    beeExisist(instance)
-    return instance.laod(template)
+    beeExists(instance)
+    return instance.load(template)
   }
 
   save() {
     const { instance } = this
-    beeExisist(instance)
+    beeExists(instance)
     return instance.save()
   }
 
   saveAsTemplate() {
     const { instance } = this
-    beeExisist(instance)
+    beeExists(instance)
     return instance.saveAsTemplate()
   }
 }
