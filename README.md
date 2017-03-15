@@ -129,18 +129,25 @@ After the initizalization you can call start for creating the editor on the page
 - BEE configuration (js object)
 - Template (JSON)
 
+## After you have started the editor it's possible to trigger this methods
+
 ### load(template)
-After you have started the editor it's possible to change the template: just call `load` with the new template
+This change the template: just call `load` with the new template
 
 ### save()
-After you have started the editor it's possible to trigger the `save`, which in turn will trigger the callback onSave defined on the configuration for getting fresh HTML of the email and the json template updated.
+This call BeePlugin `save`, which in turn will trigger the callback `onSave` defined on the configuration for getting fresh HTML of the email and the JSON template updated.
 
 ### saveAsTemplate()
-After you have started the editor it's possible to trigger the `saveAsTemplate` which in turn will trigger the callback onSaveAsTemplate defined in the configuration for getting only the current json of the instance.
+This call BeePlugin `saveAsTemplate`, which in turn will trigger the callback onSaveAsTemplate defined in the configuration for getting only the current JSON of the instance.
 
 ### send()
-After you have started the editor it's possible to trigger the `send` which in turn will trigger the callback send defined in the configuration for getting only the current html of the instance.
+This call BeePlugin `send`, which in turn will trigger the callback send defined in the configuration for getting only the current html of the instance.
 
+### preview()
+This call BeePlugin `preview` which trigger the preview modal inside the editor.
+
+### toggleStructure()
+This call BeePlugin `toggleStructure` which toggle the structure helper on the editor's stage.
 
 ## Test (WIP)
 ```sh
