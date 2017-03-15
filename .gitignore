@@ -12,6 +12,3 @@ build
 .DS_Store
 .env
 npm-debug.log
-
-# key integration
-config/integrationKeys.js
