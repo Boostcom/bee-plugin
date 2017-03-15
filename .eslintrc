@@ -31,5 +31,6 @@
     "Request": true,
     "fetch": true,
     "BeePlugin": true,
+    "FileReader": true,
   }
 }
