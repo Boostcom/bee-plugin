@@ -79,4 +79,10 @@ export default class Bee {
     beeExists(instance)
     return instance.saveAsTemplate()
   }
+
+  send() {
+    const { instance } = this
+    beeExisist(instance)
+    return instance.send()
+  }
 }
