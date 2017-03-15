@@ -24,7 +24,7 @@ It's free to use on ['https://beefree.io'](https://beefree.io): you don't even n
 
 1. Install Nodejs (also npm, which should come with nodejs already).
 2. clone this repository
-3. `npm install` or `yarn install` in the folder cloned
+3. `npm install` or `yarn install`(if you have it installed) in the folder cloned
 4. put your `clientId` and `clientSecret` in ./config/integrationKeys.js
 5. `npm start`
 6. Open `http://localhost:3030`.
