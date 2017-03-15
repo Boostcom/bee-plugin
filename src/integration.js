@@ -1,4 +1,4 @@
-import Bee from '../dist'
+import Bee from './bee'
 import { clientId, clientSecret } from '../config/integrationKeys'
 
 const BEE_TEMPLATE_URL = 'https://rsrc.getbee.io/api/templates/m-bee'
@@ -68,17 +68,13 @@ const loadTemplate = (e) => {
 }
 
 const addEvents = () => {
-  window.document.getElementById('trigger-load')
-  .addEventListener('change', loadTemplate, false)
-
-  window.document.getElementById('trigger-save')
-  .addEventListener('click', () => beeTest.save(), false)
-
-  window.document.getElementById('trigger-send')
-  .addEventListener('click', () => beeTest.send(), false)
-
-  window.document.getElementById('trigger-saveAsTemplate')
-  .addEventListener('click', () => beeTest.saveAsTemplate(), false)
+  const { getElementById } = window && window.document
+  getElementById('trigger-load').addEventListener('change', loadTemplate, false)
+  getElementById('trigger-save').addEventListener('click', () => beeTest.save(), false)
+  getElementById('trigger-send').addEventListener('click', () => beeTest.send(), false)
+  getElementById('trigger-saveAsTemplate').addEventListener('click', () => beeTest.saveAsTemplate(), false)
+  getElementById('trigger-preview').addEventListener('click', () => beeTest.preview(), false)
+  getElementById('trigger-toggleStructure').addEventListener('click', () => beeTest.toggleStructure(), false)
 }
 
 beeTest.getToken(clientId, clientSecret)

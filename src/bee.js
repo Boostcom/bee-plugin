@@ -1,4 +1,5 @@
 import loadScript from 'load-script'
+import beeActions from './utils/Constants'
 
 const BEEJS_URL = 'https://app-rsrc.getbee.io/plugin/BeePlugin.js'
 const API_AUTH_URL = 'https://auth.getbee.io/apiauth'
@@ -17,6 +18,15 @@ const beeExists = instance => {
     throw new Error('Bee is not started')
   }
 }
+
+const isValidAction = action => {
+  const actions = Object.keys(beeActions)
+  if (!actions.some(x => beeActions[x] === action)) {
+    throw new Error('Is not a correct method')
+  }
+}
+
+const { LOAD, SAVE, SEND, PREVIEW, SAVE_AS_TEMPLATE, TOGGLE_STRUCTURE } = beeActions
 
 export default class Bee {
   constructor(token) {
@@ -52,7 +62,7 @@ export default class Bee {
       throw new Error('Config or template are missing')
     }
     if (!this.token) {
-      throw new Error('Toker NOT declared, call getToken or pass token on new BEE')
+      throw new Error('Token NOT declared, call getToken or pass token on new BEE')
     }
     return bee(() =>
       BeePlugin.create(token, config, instance => {
@@ -62,27 +72,34 @@ export default class Bee {
     )
   }
 
-  load(template) {
+  executeAction(action, param) {
     const { instance } = this
     beeExists(instance)
-    return instance.load(template)
+    isValidAction(action)
+    return instance[action](param)
+  }
+
+  load(template) {
+    return this.executeAction(LOAD, template)
   }
 
   save() {
-    const { instance } = this
-    beeExists(instance)
-    return instance.save()
+    return this.executeAction(SAVE)
   }
 
   saveAsTemplate() {
-    const { instance } = this
-    beeExists(instance)
-    return instance.saveAsTemplate()
+    return this.executeAction(SAVE_AS_TEMPLATE)
   }
 
   send() {
-    const { instance } = this
-    beeExists(instance)
-    return instance.send()
+    return this.executeAction(SEND)
+  }
+
+  preview() {
+    return this.executeAction(PREVIEW)
+  }
+
+  toggleStructure() {
+    return this.executeAction(TOGGLE_STRUCTURE)
   }
 }
