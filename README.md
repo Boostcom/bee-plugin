@@ -138,6 +138,9 @@ After you have started the editor it's possible to trigger the `save`, which in 
 ### saveAsTemplate()
 After you have started the editor it's possible to trigger the `saveAsTemplate` which in turn will trigger the callback onSaveAsTemplate defined in the configuration for getting only the current json of the instance.
 
+### send()
+After you have started the editor it's possible to trigger the `send` which in turn will trigger the callback send defined in the configuration for getting only the current html of the instance.
+
 
 ## Test (WIP)
 ```sh
