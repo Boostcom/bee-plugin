@@ -82,7 +82,7 @@ export default class Bee {
 
   send() {
     const { instance } = this
-    beeExisist(instance)
+    beeExists(instance)
     return instance.send()
   }
 }

@@ -1,4 +1,4 @@
-import Bee from '../dist'
+import Bee from './bee'
 import { clientId, clientSecret } from '../config/integrationKeys'
 
 const BEE_TEMPLATE_URL = 'https://rsrc.getbee.io/api/templates/m-bee'
@@ -79,7 +79,6 @@ const addEvents = () => {
 
   window.document.getElementById('trigger-saveAsTemplate')
   .addEventListener('click', beeTest.saveAsTemplate, false)
-
 }
 
 beeTest.getToken(clientId, clientSecret)

@@ -1,6 +1,6 @@
 {
   "name": "bee-plugin",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "wrapper of bee-plugin",
   "main": "dist/index.js",
   "files": [
@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "clean": "rimraf dist",
-    "build": "(npm run clean && webpack  --config ./config/webpack.config.module.js)",
+    "build": "(npm run lint && npm run clean && webpack --config ./config/webpack.config.module.js)",
     "lint": "eslint --ignore-path .gitignore ./"
   },
   "repository": "git+https://github.com/samuv/bee-plugin.git",
