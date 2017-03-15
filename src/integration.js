@@ -53,11 +53,39 @@ const beeConfig = {
   }
 }
 
+
 const beeTest = new Bee()
 
+const loadTemplate = (e) => {
+  const templateFile = e.target.files[0]
+  const reader = new FileReader()
+  reader.onload = () => {
+    const templateString = reader.result
+    const template = JSON.parse(templateString)
+    beeTest.load(template)
+  }
+  reader.readAsText(templateFile)
+}
+
+const addEvents = () => {
+  window.document.getElementById('trigger-load')
+  .addEventListener('change', loadTemplate, false)
+
+  window.document.getElementById('trigger-save')
+  .addEventListener('click', beeTest.save, false)
+
+  window.document.getElementById('trigger-send')
+  .addEventListener('click', beeTest.send, false)
+
+  window.document.getElementById('trigger-saveAsTemplate')
+  .addEventListener('click', beeTest.saveAsTemplate, false)
+
+}
+
 beeTest.getToken(clientId, clientSecret)
-.then(() => {
-  fetch(new Request(BEE_TEMPLATE_URL, { method: 'GET' }))
-  .then((res) => res.json())
-  .then((template) => beeTest.start(beeConfig, template))
+.then(() => fetch(new Request(BEE_TEMPLATE_URL, { method: 'GET' })))
+.then((res) => res.json())
+.then((template) => {
+  beeTest.start(beeConfig, template)
+  addEvents()
 })
