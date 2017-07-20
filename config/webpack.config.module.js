@@ -1,10 +1,13 @@
-/* eslint-disable */
 var webpack = require('webpack')
+var paths = require('./paths')
 
 module.exports = {
-  entry: ['whatwg-fetch', './src/bee.js'],
+  entry: [
+    require.resolve('whatwg-fetch'),
+    './src/bee.js'
+  ],
   output: {
-    path: './dist',
+    path:  path.join(process.cwd(), 'dist'),
     filename: 'index.js',
     library: 'Bee',
     libraryTarget: 'umd'

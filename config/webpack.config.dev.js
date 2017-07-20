@@ -1,10 +1,13 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')  // eslint-disable-line 
-const paths = require('./paths')
+var path = require('path')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var paths = require('./paths')
 
 module.exports = {
-  entry: ['whatwg-fetch', './src/integration.js'],
-  devtool: 'eval-source-map',
+  entry: [
+    require.resolve('whatwg-fetch'),
+    './src/integration.js'
+  ],
+  devtool: 'cheap-module-source-map',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
