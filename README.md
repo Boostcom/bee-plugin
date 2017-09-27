@@ -128,6 +128,8 @@ After the initizalization you can call start for creating the editor on the page
 - BEE configuration (js object)
 - Template (JSON)
 
+this return a promise that has resolved after we call the plugin start function
+
 ## After you have started the editor it's possible to trigger this methods
 
 ### load(template)

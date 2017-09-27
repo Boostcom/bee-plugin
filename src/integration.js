@@ -89,8 +89,10 @@ const addEvents = () => {
 
 beeTest.getToken(clientId, clientSecret)
 .then(() => fetch(new Request(BEE_TEMPLATE_URL, { method: 'GET' })))
-.then((res) => res.json())
-.then((template) => {
+.then(res => res.json())
+.then(template => {
   beeTest.start(beeConfig, template)
+   .then(instance =>
+     console.log('promise resolve return instance', instance))
   addEvents()
 })

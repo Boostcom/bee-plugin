@@ -1,4 +1,5 @@
 var webpack = require('webpack')
+var path = require('path')
 var paths = require('./paths')
 
 module.exports = {
