@@ -1,5 +1,5 @@
 {
-  "name": "bee-plugin",
+  "name": "bee-plugin-boostcom",
   "version": "1.3.0",
   "description": "wrapper of bee-plugin",
   "main": "dist/index.js",
@@ -19,7 +19,7 @@
     "bee",
     "plugin"
   ],
-  "author": "Samuele Verzi",
+  "author": "Konrad Strzelecki",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/samuv/bee-plugin/issues"
