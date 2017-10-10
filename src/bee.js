@@ -56,10 +56,10 @@ export default class Bee {
     })
   }
 
-  start(config, template) {
+  start(config, template = null) {
     const { bee, token } = this
-    if (!config || !template) {
-      throw new Error('Config or template are missing')
+    if (!config) {
+      throw new Error('Config is missing')
     }
     if (!this.token) {
       throw new Error('Token NOT declared, call getToken or pass token on new BEE')
@@ -68,7 +68,9 @@ export default class Bee {
       bee(() =>
         BeePlugin.create(token, config, instance => {
           this.instance = instance
-          instance.start(template)
+          if (template) {
+            instance.start(template)
+          }
           resolve(instance)
         })
       )
