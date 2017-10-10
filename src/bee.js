@@ -70,6 +70,8 @@ export default class Bee {
           this.instance = instance
           if (template) {
             instance.start(template)
+          } else {
+            instance.start();
           }
           resolve(instance)
         })
